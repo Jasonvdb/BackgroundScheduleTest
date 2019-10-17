@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19A602" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PriceEntry" representedClassName="PriceEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="created_at" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="power_status" attributeType="String" defaultValueString="&quot;unknown&quot;"/>
+        <attribute name="price" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="PriceEntry" positionX="-63" positionY="-18" width="128" height="103"/>
+    </elements>
+</model>

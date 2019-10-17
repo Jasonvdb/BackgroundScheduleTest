@@ -3,29 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		004A5425235766F800D236CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A5424235766F800D236CC /* AppDelegate.swift */; };
 		004A5427235766F800D236CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A5426235766F800D236CC /* SceneDelegate.swift */; };
-		004A5429235766F800D236CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A5428235766F800D236CC /* ViewController.swift */; };
+		004A5429235766F800D236CC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A5428235766F800D236CC /* HomeViewController.swift */; };
 		004A542C235766F800D236CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004A542A235766F800D236CC /* Main.storyboard */; };
 		004A542F235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 004A542D235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld */; };
 		004A5431235766FB00D236CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004A5430235766FB00D236CC /* Assets.xcassets */; };
 		004A5434235766FB00D236CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004A5432235766FB00D236CC /* LaunchScreen.storyboard */; };
+		004A543C2357674100D236CC /* PriceUpdaterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A543B2357674100D236CC /* PriceUpdaterOperation.swift */; };
+		00E5C04A23578E7F0033B9D7 /* PriceEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5C04923578E7F0033B9D7 /* PriceEntryTableViewController.swift */; };
+		03D9F05304D8904779627915 /* Pods_BackgroundScheduleTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F83B28B3F38112E6BEB4DFA /* Pods_BackgroundScheduleTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		004A5421235766F700D236CC /* BackgroundScheduleTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundScheduleTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004A5424235766F800D236CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004A5426235766F800D236CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		004A5428235766F800D236CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		004A5428235766F800D236CC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		004A542B235766F800D236CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		004A542E235766F800D236CC /* BackgroundScheduleTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BackgroundScheduleTest.xcdatamodel; sourceTree = "<group>"; };
 		004A5430235766FB00D236CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		004A5433235766FB00D236CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		004A5435235766FB00D236CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		004A543B2357674100D236CC /* PriceUpdaterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceUpdaterOperation.swift; sourceTree = "<group>"; };
+		00E5C04923578E7F0033B9D7 /* PriceEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceEntryTableViewController.swift; sourceTree = "<group>"; };
+		5F83B28B3F38112E6BEB4DFA /* Pods_BackgroundScheduleTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackgroundScheduleTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77CCDAC528245EF007255618 /* Pods-BackgroundScheduleTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundScheduleTest.release.xcconfig"; path = "Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest.release.xcconfig"; sourceTree = "<group>"; };
+		E1068B83679C6B032E4C71E2 /* Pods-BackgroundScheduleTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundScheduleTest.debug.xcconfig"; path = "Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D9F05304D8904779627915 /* Pods_BackgroundScheduleTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,8 @@
 			children = (
 				004A5423235766F700D236CC /* BackgroundScheduleTest */,
 				004A5422235766F700D236CC /* Products */,
+				0EE0ED9EC9D37A62B0632355 /* Pods */,
+				B5CCDBC5C4BEB52043DE7420 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,14 +71,57 @@
 			children = (
 				004A5424235766F800D236CC /* AppDelegate.swift */,
 				004A5426235766F800D236CC /* SceneDelegate.swift */,
-				004A5428235766F800D236CC /* ViewController.swift */,
-				004A542A235766F800D236CC /* Main.storyboard */,
 				004A5430235766FB00D236CC /* Assets.xcassets */,
-				004A5432235766FB00D236CC /* LaunchScreen.storyboard */,
 				004A5435235766FB00D236CC /* Info.plist */,
-				004A542D235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld */,
+				00E5C04C235790470033B9D7 /* Views */,
+				00E5C04B235790270033B9D7 /* Controllers */,
+				00E5C04823576B8F0033B9D7 /* Model */,
+				004A543B2357674100D236CC /* PriceUpdaterOperation.swift */,
 			);
 			path = BackgroundScheduleTest;
+			sourceTree = "<group>";
+		};
+		00E5C04823576B8F0033B9D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				004A542D235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00E5C04B235790270033B9D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				004A5428235766F800D236CC /* HomeViewController.swift */,
+				00E5C04923578E7F0033B9D7 /* PriceEntryTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		00E5C04C235790470033B9D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				004A542A235766F800D236CC /* Main.storyboard */,
+				004A5432235766FB00D236CC /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0EE0ED9EC9D37A62B0632355 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1068B83679C6B032E4C71E2 /* Pods-BackgroundScheduleTest.debug.xcconfig */,
+				77CCDAC528245EF007255618 /* Pods-BackgroundScheduleTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5CCDBC5C4BEB52043DE7420 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F83B28B3F38112E6BEB4DFA /* Pods_BackgroundScheduleTest.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 004A5438235766FB00D236CC /* Build configuration list for PBXNativeTarget "BackgroundScheduleTest" */;
 			buildPhases = (
+				BD5D6FB0143DAB4BCA180135 /* [CP] Check Pods Manifest.lock */,
 				004A541D235766F700D236CC /* Sources */,
 				004A541E235766F700D236CC /* Frameworks */,
 				004A541F235766F700D236CC /* Resources */,
+				ACCE538BB184FF0F37DD77EA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,14 +192,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ACCE538BB184FF0F37DD77EA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD5D6FB0143DAB4BCA180135 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BackgroundScheduleTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		004A541D235766F700D236CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				004A542F235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld in Sources */,
-				004A5429235766F800D236CC /* ViewController.swift in Sources */,
+				004A5429235766F800D236CC /* HomeViewController.swift in Sources */,
+				004A543C2357674100D236CC /* PriceUpdaterOperation.swift in Sources */,
 				004A5425235766F800D236CC /* AppDelegate.swift in Sources */,
+				00E5C04A23578E7F0033B9D7 /* PriceEntryTableViewController.swift in Sources */,
 				004A5427235766F800D236CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +386,7 @@
 		};
 		004A5439235766FB00D236CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1068B83679C6B032E4C71E2 /* Pods-BackgroundScheduleTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,15 +396,16 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonwashere.background.BackgroundScheduleTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonwashere.backgroundtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		004A543A235766FB00D236CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77CCDAC528245EF007255618 /* Pods-BackgroundScheduleTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,10 +415,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonwashere.background.BackgroundScheduleTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jasonwashere.backgroundtest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

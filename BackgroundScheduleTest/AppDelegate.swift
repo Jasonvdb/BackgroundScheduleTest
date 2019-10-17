@@ -8,15 +8,65 @@
 
 import UIKit
 import CoreData
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    let PRICE_UPDATE_IDENTIFIER = "com.jasonwashere.backgroundtest.refresh"
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print("Registerting task")
+        BGTaskScheduler.shared.register(
+            forTaskWithIdentifier: PRICE_UPDATE_IDENTIFIER,
+            using: DispatchQueue.global()
+        ) { task in
+            self.handleAppRefresh(task)
+        }
+        
+        //scheduleAppRefresh()
         return true
+    }
+    
+    private func handleAppRefresh(_ task: BGTask) {
+        print("****>>>>App handleAppRefresh")
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        let appRefreshOperation = PriceUpdater()
+        queue.addOperation(appRefreshOperation)
+
+        task.expirationHandler = {
+            queue.cancelAllOperations()
+        }
+
+        let lastOperation = queue.operations.last
+        lastOperation?.completionBlock = {
+            print("Op complete!!!")
+            task.setTaskCompleted(success: !(lastOperation?.isCancelled ?? false))
+        }
+        
+        scheduleAppRefresh()
+    }
+   
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("App in background")
+        scheduleAppRefresh()
+    }
+
+    func scheduleAppRefresh() {
+        do {
+            let taskRequest = BGProcessingTaskRequest(identifier: PRICE_UPDATE_IDENTIFIER)
+            taskRequest.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
+            taskRequest.requiresExternalPower = false
+            taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60)
+            
+            try BGTaskScheduler.shared.submit(taskRequest)
+            
+            print("BGTaskScheduler.shared.submit")
+        } catch {
+            print("Scheduling error:")
+            print(error)
+        }
     }
 
     // MARK: UISceneSession Lifecycle
