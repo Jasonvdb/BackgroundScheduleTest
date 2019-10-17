@@ -55,9 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func scheduleAppRefresh() {
         do {
-            let taskRequest = BGProcessingTaskRequest(identifier: PRICE_UPDATE_IDENTIFIER)
-            taskRequest.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
-            taskRequest.requiresExternalPower = false
+            let taskRequest = BGAppRefreshTaskRequest(identifier: PRICE_UPDATE_IDENTIFIER)
+            //taskRequest.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
+            //taskRequest.requiresExternalPower = false
             taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60)
             
             try BGTaskScheduler.shared.submit(taskRequest)
