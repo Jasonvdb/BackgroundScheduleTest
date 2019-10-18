@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
         
         if latestEntry.price != 0 {
             priceLabel.text = "$ \(latestEntry.price)"
-            updatedAtLabel.text = "Updated \(latestEntry.created_at!.timeAgoDisplay()) \(latestEntry.power_status!)"
+            updatedAtLabel.text = "Updated \(latestEntry.created_at!.timeAgoDisplay()) while \(latestEntry.power_status!)"
         } else {
             priceLabel.text = "$ ???"
             updatedAtLabel.text = "Last update failed:  \(latestEntry.note ?? "No reason.")"

@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import BackgroundTasks
 
+//e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.jasonwashere.backgroundtest.refresh"]
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     let PRICE_UPDATE_IDENTIFIER = "com.jasonwashere.backgroundtest.refresh"
@@ -21,14 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             forTaskWithIdentifier: PRICE_UPDATE_IDENTIFIER,
             using: DispatchQueue.global()
         ) { task in
-            self.handleAppRefresh(task)
+            print("tasl in")
+            self.handleAppRefresh(task: task as! BGAppRefreshTask)
         }
         
         //scheduleAppRefresh()
         return true
     }
     
-    private func handleAppRefresh(_ task: BGTask) {
+    private func handleAppRefresh(task: BGAppRefreshTask) {
         print("****>>>>App handleAppRefresh")
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
@@ -58,15 +61,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let taskRequest = BGAppRefreshTaskRequest(identifier: PRICE_UPDATE_IDENTIFIER)
             //taskRequest.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
             //taskRequest.requiresExternalPower = false
-            taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60)
+            taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 5)
             
             try BGTaskScheduler.shared.submit(taskRequest)
             
-            print("BGTaskScheduler.shared.submit")
         } catch {
             print("Scheduling error:")
             print(error)
         }
+        
+        print("BGTaskScheduler.shared.submit DONE")
+
     }
 
     // MARK: UISceneSession Lifecycle
