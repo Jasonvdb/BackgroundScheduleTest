@@ -53,7 +53,18 @@ class PriceEntryTableViewController: UITableViewController {
         } else {
             cell.textLabel?.text = "$ \(priceEntry.price)"
         }
-        cell.detailTextLabel?.text = priceEntry.created_at?.timeAgoDisplay()
+        
+        var timeLabelText = "-"
+        if let createdAt = priceEntry.created_at {
+            if priceEntries.indices.contains(indexPath.row + 1) {
+                let previousPriceEntries = priceEntries[indexPath.row + 1]
+                if let previousCreatedAt = previousPriceEntries.created_at {
+                    timeLabelText = "\(previousCreatedAt.timeAgoDisplay(compareDate: createdAt)) from previous"
+                }
+            }
+        }
+        
+        cell.detailTextLabel?.text = timeLabelText
         
         let label = UILabel.init(frame: CGRect(x:0,y:0,width:30,height:20))
         
@@ -80,6 +91,15 @@ class PriceEntryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let priceEntry: PriceEntry = priceEntries[indexPath.row]
+        let selectAlert = UIAlertController(title: "\(priceEntry.created_at)", message: priceEntry.note, preferredStyle: UIAlertController.Style.alert)
+
+        selectAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+
+        }))
+
+        present(selectAlert, animated: true, completion: nil)
     }
     
     

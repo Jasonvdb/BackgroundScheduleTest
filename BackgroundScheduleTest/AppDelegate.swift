@@ -18,17 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print("Registerting task")
+        print("Registering task")
         BGTaskScheduler.shared.register(
             forTaskWithIdentifier: PRICE_UPDATE_IDENTIFIER,
-            using: DispatchQueue.global()
+            using: nil
         ) { task in
-            print("tasl in")
+            print("Task starting")
             self.handleAppRefresh(task: task as! BGAppRefreshTask)
         }
         
-        //scheduleAppRefresh()
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+    
         return true
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let appRefreshOperation = PriceUpdater(completionHandler)
+        appRefreshOperation.start()
     }
     
     private func handleAppRefresh(task: BGAppRefreshTask) {
@@ -44,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let lastOperation = queue.operations.last
         lastOperation?.completionBlock = {
-            print("Op complete!!!")
+            print("Operation complete")
             task.setTaskCompleted(success: !(lastOperation?.isCancelled ?? false))
         }
         
@@ -61,16 +67,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let taskRequest = BGAppRefreshTaskRequest(identifier: PRICE_UPDATE_IDENTIFIER)
             //taskRequest.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
             //taskRequest.requiresExternalPower = false
-            taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60 * 5)
+            taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60)
             
             try BGTaskScheduler.shared.submit(taskRequest)
-            
         } catch {
             print("Scheduling error:")
             print(error)
         }
         
-        print("BGTaskScheduler.shared.submit DONE")
+        print("BGTaskScheduler.shared.submit()")
 
     }
 

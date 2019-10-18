@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
         
         if latestEntry.price != 0 {
             priceLabel.text = "$ \(latestEntry.price)"
-            updatedAtLabel.text = "Updated \(latestEntry.created_at!.timeAgoDisplay()) while \(latestEntry.power_status!)"
+            updatedAtLabel.text = "Updated \(latestEntry.created_at!.timeAgoDisplay()) ago while \(latestEntry.power_status!)"
         } else {
             priceLabel.text = "$ ???"
             updatedAtLabel.text = "Last update failed:  \(latestEntry.note ?? "No reason.")"
@@ -76,27 +76,27 @@ class HomeViewController: UIViewController {
 }
 
 extension Date {
-    func timeAgoDisplay() -> String {
+    func timeAgoDisplay(compareDate: Date = Date()) -> String {
         let calendar = Calendar.current
-        let minuteAgo = calendar.date(byAdding: .minute, value: -1, to: Date())!
-        let hourAgo = calendar.date(byAdding: .hour, value: -1, to: Date())!
-        let dayAgo = calendar.date(byAdding: .day, value: -1, to: Date())!
-        let weekAgo = calendar.date(byAdding: .day, value: -7, to: Date())!
+        let minuteAgo = calendar.date(byAdding: .minute, value: -1, to: compareDate)!
+        let hourAgo = calendar.date(byAdding: .hour, value: -1, to: compareDate)!
+        let dayAgo = calendar.date(byAdding: .day, value: -1, to: compareDate)!
+        let weekAgo = calendar.date(byAdding: .day, value: -7, to: compareDate)!
 
         if minuteAgo < self {
-            let diff = Calendar.current.dateComponents([.second], from: self, to: Date()).second ?? 0
-            return "\(diff) sec ago"
+            let diff = Calendar.current.dateComponents([.second], from: self, to: compareDate).second ?? 0
+            return "\(diff) seconds"
         } else if hourAgo < self {
-            let diff = Calendar.current.dateComponents([.minute], from: self, to: Date()).minute ?? 0
-            return "\(diff) min ago"
+            let diff = Calendar.current.dateComponents([.minute], from: self, to: compareDate).minute ?? 0
+            return "\(diff) minutes"
         } else if dayAgo < self {
-            let diff = Calendar.current.dateComponents([.hour], from: self, to: Date()).hour ?? 0
-            return "\(diff) hrs ago"
+            let diff = Calendar.current.dateComponents([.hour], from: self, to: compareDate).hour ?? 0
+            return "\(diff) hours"
         } else if weekAgo < self {
-            let diff = Calendar.current.dateComponents([.day], from: self, to: Date()).day ?? 0
-            return "\(diff) days ago"
+            let diff = Calendar.current.dateComponents([.day], from: self, to: compareDate).day ?? 0
+            return "\(diff) days"
         }
-        let diff = Calendar.current.dateComponents([.weekOfYear], from: self, to: Date()).weekOfYear ?? 0
-        return "\(diff) weeks ago"
+        let diff = Calendar.current.dateComponents([.weekOfYear], from: self, to: compareDate).weekOfYear ?? 0
+        return "\(diff) weeks"
     }
 }

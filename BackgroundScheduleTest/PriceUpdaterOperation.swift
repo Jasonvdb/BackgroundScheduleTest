@@ -79,22 +79,29 @@ import SwiftyJSON
 class PriceUpdater: Operation {
     private let apiUrl = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD"
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-    
-    override init() {
+    private var completionHandler: ((UIBackgroundFetchResult) -> Void)?
+ 
+    init(_ completionHandler: ((UIBackgroundFetchResult) -> Void)? = nil) {
         super.init()
+        
+        self.completionHandler = completionHandler
+    
         print("Op init")
     }
   
     override func main() {
         print("Op main*****")
-
+        
         if isCancelled {
             return
         }
 
         self.priceRequest(onSuccess: { (price) in
             self.saveEntry(price: price)
+            
+            if let onComplete = self.completionHandler {
+                onComplete(.newData)
+            }
         }) { (errorMessage) in
             print(errorMessage)
             self.saveEntry(price: nil, errorMessage: errorMessage)
