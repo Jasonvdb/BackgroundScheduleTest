@@ -51,8 +51,9 @@
                                     <segue destination="cQe-j3-Hy8" kind="show" id="Ypx-Nx-9UW"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attempts to load the price of bitcoin in the background. Close the app and come back later to see how often it's updated." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1u-oY-hAb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1u-oY-hAb">
                                 <rect key="frame" x="20" y="689" width="374" height="61"/>
+                                <string key="text">Attempts to load the mempool count of bitcoin in the background. Close the app and come back later to see how often it's updated.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -85,7 +86,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Background Test" id="DXm-38-jz9"/>
                     <connections>
-                        <outlet property="priceLabel" destination="kzc-wa-mT7" id="b7h-gL-po2"/>
+                        <outlet property="countLabel" destination="kzc-wa-mT7" id="b7h-gL-po2"/>
                         <outlet property="schduledTimeLabel" destination="xOt-ju-uaw" id="v8d-1v-Gcw"/>
                         <outlet property="updatedAtLabel" destination="81r-ip-ABo" id="den-bB-9lG"/>
                     </connections>
@@ -94,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="-1007" y="43"/>
         </scene>
-        <!--Price Entry Table View Controller-->
+        <!--Count Entry Table View Controller-->
         <scene sceneID="sFY-Mh-i5A">
             <objects>
-                <tableViewController id="cQe-j3-Hy8" customClass="PriceEntryTableViewController" customModule="BackgroundScheduleTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cQe-j3-Hy8" customClass="CountEntryTableViewController" customModule="BackgroundScheduleTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Sby-cR-zzd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

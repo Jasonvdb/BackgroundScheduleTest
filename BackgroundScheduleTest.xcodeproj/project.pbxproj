@@ -14,13 +14,13 @@
 		004A542F235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 004A542D235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld */; };
 		004A5431235766FB00D236CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004A5430235766FB00D236CC /* Assets.xcassets */; };
 		004A5434235766FB00D236CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004A5432235766FB00D236CC /* LaunchScreen.storyboard */; };
-		004A543C2357674100D236CC /* PriceUpdaterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A543B2357674100D236CC /* PriceUpdaterOperation.swift */; };
-		00E5C04A23578E7F0033B9D7 /* PriceEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5C04923578E7F0033B9D7 /* PriceEntryTableViewController.swift */; };
+		004A543C2357674100D236CC /* MempoolUpdaterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004A543B2357674100D236CC /* MempoolUpdaterOperation.swift */; };
+		00E5C04A23578E7F0033B9D7 /* CountEntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5C04923578E7F0033B9D7 /* CountEntryTableViewController.swift */; };
 		03D9F05304D8904779627915 /* Pods_BackgroundScheduleTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F83B28B3F38112E6BEB4DFA /* Pods_BackgroundScheduleTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		004A5421235766F700D236CC /* BackgroundScheduleTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackgroundScheduleTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		004A5421235766F700D236CC /* ScheduledDep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduledDep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		004A5424235766F800D236CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		004A5426235766F800D236CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		004A5428235766F800D236CC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -29,8 +29,8 @@
 		004A5430235766FB00D236CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		004A5433235766FB00D236CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		004A5435235766FB00D236CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		004A543B2357674100D236CC /* PriceUpdaterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceUpdaterOperation.swift; sourceTree = "<group>"; };
-		00E5C04923578E7F0033B9D7 /* PriceEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceEntryTableViewController.swift; sourceTree = "<group>"; };
+		004A543B2357674100D236CC /* MempoolUpdaterOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MempoolUpdaterOperation.swift; sourceTree = "<group>"; };
+		00E5C04923578E7F0033B9D7 /* CountEntryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountEntryTableViewController.swift; sourceTree = "<group>"; };
 		5F83B28B3F38112E6BEB4DFA /* Pods_BackgroundScheduleTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackgroundScheduleTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77CCDAC528245EF007255618 /* Pods-BackgroundScheduleTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundScheduleTest.release.xcconfig"; path = "Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest.release.xcconfig"; sourceTree = "<group>"; };
 		E1068B83679C6B032E4C71E2 /* Pods-BackgroundScheduleTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackgroundScheduleTest.debug.xcconfig"; path = "Target Support Files/Pods-BackgroundScheduleTest/Pods-BackgroundScheduleTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		004A5422235766F700D236CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				004A5421235766F700D236CC /* BackgroundScheduleTest.app */,
+				004A5421235766F700D236CC /* ScheduledDep.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,7 +76,7 @@
 				00E5C04C235790470033B9D7 /* Views */,
 				00E5C04B235790270033B9D7 /* Controllers */,
 				00E5C04823576B8F0033B9D7 /* Model */,
-				004A543B2357674100D236CC /* PriceUpdaterOperation.swift */,
+				004A543B2357674100D236CC /* MempoolUpdaterOperation.swift */,
 			);
 			path = BackgroundScheduleTest;
 			sourceTree = "<group>";
@@ -93,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				004A5428235766F800D236CC /* HomeViewController.swift */,
-				00E5C04923578E7F0033B9D7 /* PriceEntryTableViewController.swift */,
+				00E5C04923578E7F0033B9D7 /* CountEntryTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -143,7 +143,7 @@
 			);
 			name = BackgroundScheduleTest;
 			productName = BackgroundScheduleTest;
-			productReference = 004A5421235766F700D236CC /* BackgroundScheduleTest.app */;
+			productReference = 004A5421235766F700D236CC /* ScheduledDep.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,9 +241,9 @@
 			files = (
 				004A542F235766F800D236CC /* BackgroundScheduleTest.xcdatamodeld in Sources */,
 				004A5429235766F800D236CC /* HomeViewController.swift in Sources */,
-				004A543C2357674100D236CC /* PriceUpdaterOperation.swift in Sources */,
+				004A543C2357674100D236CC /* MempoolUpdaterOperation.swift in Sources */,
 				004A5425235766F800D236CC /* AppDelegate.swift in Sources */,
-				00E5C04A23578E7F0033B9D7 /* PriceEntryTableViewController.swift in Sources */,
+				00E5C04A23578E7F0033B9D7 /* CountEntryTableViewController.swift in Sources */,
 				004A5427235766F800D236CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,8 +396,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonwashere.backgroundtest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonwashere.backgroundtest-dep";
+				PRODUCT_NAME = ScheduledDep;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -415,8 +415,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jasonwashere.backgroundtest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jasonwashere.backgroundtest-dep";
+				PRODUCT_NAME = ScheduledDep;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

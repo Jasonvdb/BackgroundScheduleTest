@@ -14,34 +14,41 @@ import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let PRICE_UPDATE_IDENTIFIER = "com.jasonwashere.backgroundtest.refresh"
+    let isNewMode = false
+    
+    let COUNT_UPDATE_IDENTIFIER = "com.jasonwashere.backgroundtest.refresh"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("Registering task")
-        BGTaskScheduler.shared.register(
-            forTaskWithIdentifier: PRICE_UPDATE_IDENTIFIER,
-            using: nil
-        ) { task in
-            print("Task starting")
-            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+       
+        if isNewMode {
+            BGTaskScheduler.shared.register(
+                forTaskWithIdentifier: COUNT_UPDATE_IDENTIFIER,
+                using: nil
+            ) { task in
+                print("Task starting")
+                self.handleAppRefresh(task: task as! BGAppRefreshTask)
+            }
+        } else {
+            UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         }
-        
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
     
         return true
     }
     
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let appRefreshOperation = PriceUpdater(completionHandler)
-        appRefreshOperation.start()
+        if !isNewMode {
+            let appRefreshOperation = MempoolUpdater(completionHandler)
+            appRefreshOperation.start()
+        }
     }
     
     private func handleAppRefresh(task: BGAppRefreshTask) {
         print("****>>>>App handleAppRefresh")
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
-        let appRefreshOperation = PriceUpdater()
+        let appRefreshOperation = MempoolUpdater()
         queue.addOperation(appRefreshOperation)
 
         task.expirationHandler = {
@@ -59,12 +66,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    
     func applicationDidEnterBackground(_ application: UIApplication) {
         print("App in background")
-        scheduleAppRefresh()
+        
+        if isNewMode {
+            scheduleAppRefresh()
+        }
     }
 
     func scheduleAppRefresh() {
+        if !isNewMode {
+            return
+        }
+
         do {
-            let taskRequest = BGAppRefreshTaskRequest(identifier: PRICE_UPDATE_IDENTIFIER)
+            let taskRequest = BGAppRefreshTaskRequest(identifier: COUNT_UPDATE_IDENTIFIER)
             //taskRequest.requiresNetworkConnectivity = true // Need to true if your task need to network process. Defaults to false.
             //taskRequest.requiresExternalPower = false
             taskRequest.earliestBeginDate = Date(timeIntervalSinceNow: 60)

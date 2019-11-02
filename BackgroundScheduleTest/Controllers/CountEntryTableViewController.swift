@@ -1,5 +1,5 @@
 //
-//  PriceEntryTableViewController.swift
+//  CountEntryTableViewController.swift
 //  BackgroundScheduleTest
 //
 //  Created by Jason van den Berg on 2019/10/16.
@@ -9,29 +9,26 @@
 import UIKit
 import CoreData
 
-class PriceEntryTableViewController: UITableViewController {
-    var priceEntries: [PriceEntry] = [PriceEntry]()
+class CountEntryTableViewController: UITableViewController {
+    var countEntries: [CountEntry] = [CountEntry]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadPriceEntries()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        loadPriceEntries()
+    override func viewWillAppear(_ animated: Bool) {
+        loadCountEntries()
     }
-    
 
     // MARK: - Table view data source
-    func loadPriceEntries(with request: NSFetchRequest<PriceEntry> = PriceEntry.fetchRequest()) {
+    func loadCountEntries(with request: NSFetchRequest<CountEntry> = CountEntry.fetchRequest()) {
         let sectionSortDescriptor = NSSortDescriptor(key: "created_at", ascending: false)
         let sortDescriptors = [sectionSortDescriptor]
         request.sortDescriptors = sortDescriptors
         
         do {
-            priceEntries = try context.fetch(request)
+            countEntries = try context.fetch(request)
         } catch {
             print("Failed to load entries \(error)")
         }
@@ -40,25 +37,25 @@ class PriceEntryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return priceEntries.count
+        return countEntries.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
         
-        let priceEntry: PriceEntry = priceEntries[indexPath.row]
+        let countEntry: CountEntry = countEntries[indexPath.row]
         
-        if priceEntry.price == 0 {
+        if countEntry.count == 0 {
             cell.textLabel?.text = "Failed ❌"
         } else {
-            cell.textLabel?.text = "$ \(priceEntry.price)"
+            cell.textLabel?.text = "\(countEntry.count) ✅"
         }
         
         var timeLabelText = "-"
-        if let createdAt = priceEntry.created_at {
-            if priceEntries.indices.contains(indexPath.row + 1) {
-                let previousPriceEntries = priceEntries[indexPath.row + 1]
-                if let previousCreatedAt = previousPriceEntries.created_at {
+        if let createdAt = countEntry.created_at {
+            if countEntries.indices.contains(indexPath.row + 1) {
+                let previousCountEntries = countEntries[indexPath.row + 1]
+                if let previousCreatedAt = previousCountEntries.created_at {
                     timeLabelText = "\(previousCreatedAt.timeAgoDisplay(compareDate: createdAt)) from previous"
                 }
             }
@@ -68,7 +65,7 @@ class PriceEntryTableViewController: UITableViewController {
         
         let label = UILabel.init(frame: CGRect(x:0,y:0,width:30,height:20))
         
-        switch priceEntry.power_status {
+        switch countEntry.power_status {
             case "charging":
                 label.text = "⚡"
                 break
@@ -92,8 +89,8 @@ class PriceEntryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let priceEntry: PriceEntry = priceEntries[indexPath.row]
-        let selectAlert = UIAlertController(title: "\(priceEntry.created_at)", message: priceEntry.note, preferredStyle: UIAlertController.Style.alert)
+        let countEntry: CountEntry = countEntries[indexPath.row]
+        let selectAlert = UIAlertController(title: "\(countEntry.created_at)", message: countEntry.note, preferredStyle: UIAlertController.Style.alert)
 
         selectAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
 
@@ -107,11 +104,11 @@ class PriceEntryTableViewController: UITableViewController {
         let deleteAlert = UIAlertController(title: "Delete all", message: "All data entries will be lost.", preferredStyle: UIAlertController.Style.alert)
 
         deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-            self.loadPriceEntries()
+            self.loadCountEntries()
             
-            for priceEntry in self.priceEntries
+            for countEntry in self.countEntries
             {
-                self.context.delete(priceEntry)
+                self.context.delete(countEntry)
             }
             
             do {
@@ -120,7 +117,7 @@ class PriceEntryTableViewController: UITableViewController {
                 print("Failed to save context: \(error)")
             }
             
-            self.loadPriceEntries()
+            self.loadCountEntries()
           }))
 
         deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
